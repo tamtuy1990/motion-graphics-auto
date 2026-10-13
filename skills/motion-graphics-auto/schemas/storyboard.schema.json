@@ -1,0 +1,802 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://motion-graphics-auto.local/schemas/storyboard.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "const": "1.0"
+    },
+    "canvas": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "width": {
+          "type": "integer",
+          "minimum": 16
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 16
+        },
+        "fpsNum": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "fpsDen": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "durationFrames": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "width",
+        "height",
+        "fpsNum",
+        "fpsDen",
+        "durationFrames"
+      ]
+    },
+    "style": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fontFamily": {
+          "type": "string",
+          "minLength": 1
+        },
+        "locale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "accent": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$"
+        },
+        "foreground": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$"
+        },
+        "background": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$"
+        }
+      },
+      "required": [
+        "fontFamily",
+        "locale",
+        "accent",
+        "foreground",
+        "background"
+      ]
+    },
+    "protectedRegions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "startFrame": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "endFrame": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "box": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "x": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "y": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "w": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 1
+              },
+              "h": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 1
+              }
+            },
+            "required": [
+              "x",
+              "y",
+              "w",
+              "h"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "startFrame",
+          "endFrame",
+          "box",
+          "reason"
+        ]
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sentenceId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "startFrame": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "endFrame": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "cueFrame": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "evidenceWordIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1
+              },
+              "evidenceQuote": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sourceKind": {
+                "enum": [
+                  "spoken",
+                  "supplied-data",
+                  "external-source"
+                ]
+              },
+              "sourceRef": {
+                "type": "string",
+                "minLength": 1
+              },
+              "box": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "x": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "y": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "w": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 1
+                  },
+                  "h": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 1
+                  }
+                },
+                "required": [
+                  "x",
+                  "y",
+                  "w",
+                  "h"
+                ]
+              },
+              "template": {
+                "const": "callout-v1"
+              },
+              "props": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 80
+                  },
+                  "body": {
+                    "type": "string",
+                    "maxLength": 180
+                  }
+                },
+                "required": [
+                  "title",
+                  "body"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "sentenceId",
+              "startFrame",
+              "endFrame",
+              "cueFrame",
+              "evidenceWordIds",
+              "evidenceQuote",
+              "sourceKind",
+              "sourceRef",
+              "box",
+              "template",
+              "props"
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sentenceId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "startFrame": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "endFrame": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "cueFrame": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "evidenceWordIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1
+              },
+              "evidenceQuote": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sourceKind": {
+                "enum": [
+                  "spoken",
+                  "supplied-data",
+                  "external-source"
+                ]
+              },
+              "sourceRef": {
+                "type": "string",
+                "minLength": 1
+              },
+              "box": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "x": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "y": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "w": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 1
+                  },
+                  "h": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 1
+                  }
+                },
+                "required": [
+                  "x",
+                  "y",
+                  "w",
+                  "h"
+                ]
+              },
+              "template": {
+                "const": "counter-v1"
+              },
+              "props": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "label": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 60
+                  },
+                  "from": {
+                    "type": "number"
+                  },
+                  "to": {
+                    "type": "number"
+                  },
+                  "unit": {
+                    "type": "string",
+                    "maxLength": 16
+                  },
+                  "decimals": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 3
+                  }
+                },
+                "required": [
+                  "label",
+                  "from",
+                  "to",
+                  "unit",
+                  "decimals"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "sentenceId",
+              "startFrame",
+              "endFrame",
+              "cueFrame",
+              "evidenceWordIds",
+              "evidenceQuote",
+              "sourceKind",
+              "sourceRef",
+              "box",
+              "template",
+              "props"
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sentenceId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "startFrame": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "endFrame": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "cueFrame": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "evidenceWordIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1
+              },
+              "evidenceQuote": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sourceKind": {
+                "enum": [
+                  "spoken",
+                  "supplied-data",
+                  "external-source"
+                ]
+              },
+              "sourceRef": {
+                "type": "string",
+                "minLength": 1
+              },
+              "box": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "x": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "y": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "w": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 1
+                  },
+                  "h": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 1
+                  }
+                },
+                "required": [
+                  "x",
+                  "y",
+                  "w",
+                  "h"
+                ]
+              },
+              "template": {
+                "const": "bar-chart-v1"
+              },
+              "props": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 60
+                  },
+                  "unit": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 16
+                  },
+                  "data": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "label": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 32
+                        },
+                        "value": {
+                          "type": "number",
+                          "minimum": 0
+                        }
+                      },
+                      "required": [
+                        "label",
+                        "value"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 8
+                  }
+                },
+                "required": [
+                  "title",
+                  "unit",
+                  "data"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "sentenceId",
+              "startFrame",
+              "endFrame",
+              "cueFrame",
+              "evidenceWordIds",
+              "evidenceQuote",
+              "sourceKind",
+              "sourceRef",
+              "box",
+              "template",
+              "props"
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sentenceId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "startFrame": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "endFrame": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "cueFrame": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "evidenceWordIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1
+              },
+              "evidenceQuote": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sourceKind": {
+                "enum": [
+                  "spoken",
+                  "supplied-data",
+                  "external-source"
+                ]
+              },
+              "sourceRef": {
+                "type": "string",
+                "minLength": 1
+              },
+              "box": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "x": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "y": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "w": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 1
+                  },
+                  "h": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 1
+                  }
+                },
+                "required": [
+                  "x",
+                  "y",
+                  "w",
+                  "h"
+                ]
+              },
+              "template": {
+                "const": "infographic-v1"
+              },
+              "props": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 60
+                  },
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "glyph": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 4
+                        },
+                        "label": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 60
+                        }
+                      },
+                      "required": [
+                        "glyph",
+                        "label"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 4
+                  }
+                },
+                "required": [
+                  "title",
+                  "items"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "sentenceId",
+              "startFrame",
+              "endFrame",
+              "cueFrame",
+              "evidenceWordIds",
+              "evidenceQuote",
+              "sourceKind",
+              "sourceRef",
+              "box",
+              "template",
+              "props"
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sentenceId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "startFrame": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "endFrame": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "cueFrame": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "evidenceWordIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1
+              },
+              "evidenceQuote": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sourceKind": {
+                "enum": [
+                  "spoken",
+                  "supplied-data",
+                  "external-source"
+                ]
+              },
+              "sourceRef": {
+                "type": "string",
+                "minLength": 1
+              },
+              "box": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "x": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "y": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "w": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 1
+                  },
+                  "h": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 1
+                  }
+                },
+                "required": [
+                  "x",
+                  "y",
+                  "w",
+                  "h"
+                ]
+              },
+              "template": {
+                "const": "steps-v1"
+              },
+              "props": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 60
+                  },
+                  "steps": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 60
+                    },
+                    "minItems": 1,
+                    "maxItems": 4
+                  }
+                },
+                "required": [
+                  "title",
+                  "steps"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "sentenceId",
+              "startFrame",
+              "endFrame",
+              "cueFrame",
+              "evidenceWordIds",
+              "evidenceQuote",
+              "sourceKind",
+              "sourceRef",
+              "box",
+              "template",
+              "props"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "version",
+    "canvas",
+    "style",
+    "protectedRegions",
+    "events"
+  ]
+}

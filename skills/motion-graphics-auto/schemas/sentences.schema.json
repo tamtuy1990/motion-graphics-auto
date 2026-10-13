@@ -1,0 +1,194 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://motion-graphics-auto.local/schemas/sentences.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "const": "1.0"
+    },
+    "sentences": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "order": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "originalText": {
+            "type": "string",
+            "minLength": 1
+          },
+          "startSeconds": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "endSeconds": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "wordIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "overlayEventIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "assets": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "assetOrder": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "kind": {
+                  "enum": [
+                    "video",
+                    "image"
+                  ]
+                },
+                "status": {
+                  "enum": [
+                    "candidate",
+                    "selected",
+                    "downloaded",
+                    "rejected"
+                  ]
+                },
+                "sourceUrl": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "title": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "author": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "license": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "licenseUrl": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "uri"
+                },
+                "rightsStatus": {
+                  "enum": [
+                    "verified",
+                    "unknown",
+                    "disallowed"
+                  ]
+                },
+                "localPath": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "sha256": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                "sourceInSeconds": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0
+                },
+                "sourceOutSeconds": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0
+                },
+                "placementStartSeconds": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0
+                },
+                "placementEndSeconds": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "id",
+                "assetOrder",
+                "kind",
+                "status",
+                "sourceUrl",
+                "title",
+                "author",
+                "license",
+                "licenseUrl",
+                "rightsStatus",
+                "localPath",
+                "sha256",
+                "sourceInSeconds",
+                "sourceOutSeconds",
+                "placementStartSeconds",
+                "placementEndSeconds"
+              ]
+            }
+          }
+        },
+        "required": [
+          "id",
+          "order",
+          "originalText",
+          "startSeconds",
+          "endSeconds",
+          "wordIds",
+          "overlayEventIds",
+          "assets"
+        ]
+      }
+    }
+  },
+  "required": [
+    "version",
+    "sentences"
+  ]
+}

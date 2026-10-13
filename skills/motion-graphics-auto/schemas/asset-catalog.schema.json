@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://motion-graphics-auto.local/schemas/asset-catalog.schema.json",
+  "title": "Project Asset Catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "version": {"const": "1.0"},
+    "projectId": {"type": "string", "minLength": 1},
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "assetId": {"type": "string", "pattern": "^a[0-9]{6}$"},
+          "kind": {"enum": ["video", "image", "logo", "document", "audio", "other"]},
+          "relativePath": {"type": "string", "minLength": 1},
+          "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "durationSeconds": {"type": ["number", "null"], "minimum": 0},
+          "width": {"type": ["integer", "null"], "minimum": 1},
+          "height": {"type": ["integer", "null"], "minimum": 1},
+          "fpsNum": {"type": ["integer", "null"], "minimum": 1},
+          "fpsDen": {"type": ["integer", "null"], "minimum": 1},
+          "hasAlpha": {"type": ["boolean", "null"]},
+          "sampleFrames": {"type": "array", "items": {"type": "object", "additionalProperties": false, "properties": {"timeSeconds": {"type": "number", "minimum": 0}, "relativePath": {"type": "string"}}, "required": ["timeSeconds", "relativePath"]}},
+          "description": {"type": ["string", "null"]},
+          "tags": {"type": "array", "items": {"type": "string"}},
+          "rightsStatus": {"enum": ["user-provided", "verified", "unknown", "disallowed"]},
+          "audioStreamCount": {"type": "integer", "minimum": 0}
+        },
+        "required": ["assetId", "kind", "relativePath", "sha256", "durationSeconds", "width", "height", "fpsNum", "fpsDen", "hasAlpha", "sampleFrames", "description", "tags", "rightsStatus", "audioStreamCount"]
+      }
+    }
+  },
+  "required": ["version", "projectId", "assets"]
+}

@@ -1,0 +1,59 @@
+{
+  "version": "1.0",
+  "canvas": {
+    "width": 1280,
+    "height": 720,
+    "fpsNum": 30,
+    "fpsDen": 1,
+    "durationFrames": 180
+  },
+  "style": {
+    "fontFamily": "Arial",
+    "locale": "vi-VN",
+    "accent": "#60A5FA",
+    "foreground": "#FFFFFF",
+    "background": "#172033"
+  },
+  "protectedRegions": [
+    {
+      "startFrame": 0,
+      "endFrame": 180,
+      "box": {
+        "x": 0,
+        "y": 0.85,
+        "w": 1,
+        "h": 0.15
+      },
+      "reason": "caption safe area"
+    }
+  ],
+  "events": [
+    {
+      "id": "e000001",
+      "sentenceId": "s000001",
+      "startFrame": 30,
+      "endFrame": 120,
+      "cueFrame": 36,
+      "evidenceWordIds": [
+        "w000002"
+      ],
+      "evidenceQuote": "3",
+      "sourceKind": "spoken",
+      "sourceRef": "s000001",
+      "box": {
+        "x": 0.6,
+        "y": 0.12,
+        "w": 0.34,
+        "h": 0.34
+      },
+      "template": "counter-v1",
+      "props": {
+        "label": "Số bước",
+        "from": 0,
+        "to": 3,
+        "unit": "bước",
+        "decimals": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "version": "1.0",
+  "language": "vi",
+  "method": "forced-alignment",
+  "audioOffsetSeconds": 0,
+  "words": [
+    {
+      "id": "w000001",
+      "text": "Có",
+      "start": 1,
+      "end": 1.2,
+      "confidence": 0.9,
+      "status": "aligned"
+    },
+    {
+      "id": "w000002",
+      "text": "3",
+      "start": 1.2,
+      "end": 1.5,
+      "confidence": 0.9,
+      "status": "aligned"
+    },
+    {
+      "id": "w000003",
+      "text": "bước.",
+      "start": 1.5,
+      "end": 2,
+      "confidence": 0.9,
+      "status": "aligned"
+    }
+  ],
+  "segments": [
+    {
+      "id": "s000001",
+      "originalText": "Có 3 bước.",
+      "wordIds": [
+        "w000001",
+        "w000002",
+        "w000003"
+      ],
+      "status": "aligned"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "version": "1.0",
+  "sentences": [
+    {
+      "id": "s000001",
+      "order": 1,
+      "originalText": "Có 3 bước.",
+      "startSeconds": 1,
+      "endSeconds": 2,
+      "wordIds": [
+        "w000001",
+        "w000002",
+        "w000003"
+      ],
+      "overlayEventIds": [
+        "e000001"
+      ],
+      "assets": []
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "checked_date": "2026-10-13",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "source_type": "GitHub latest stable Releases",
+  "projects": {
+    "remotion": {
+      "repository": "remotion-dev/remotion",
+      "tag": "v4.0.535",
+      "release_url": "https://github.com/remotion-dev/remotion/releases/latest"
+    },
+    "hyperframes": {
+      "repository": "heygen-com/hyperframes",
+      "tag": "v0.8.150",
+      "release_url": "https://github.com/heygen-com/hyperframes/releases/latest"
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://motion-graphics-auto.local/schemas/edit-plan.schema.json",
+  "title": "Project visual edit plan",
+  "description": "Typed operations layered on a finished base video. A schema proposal only; runtime renderer support is tracked separately.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "version": {"const": "1.0"},
+    "baseVideoSha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "fpsNum": {"type": "integer", "minimum": 1},
+    "fpsDen": {"type": "integer", "minimum": 1},
+    "durationFrames": {"type": "integer", "minimum": 1},
+    "preserveBaseAudio": {"const": true},
+    "preserveShotOrder": {"const": true},
+    "operations": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {"$ref": "#/$defs/assetPlacement"},
+          {"$ref": "#/$defs/effect"},
+          {"$ref": "#/$defs/card"},
+          {"$ref": "#/$defs/graphic"}
+        ]
+      }
+    }
+  },
+  "required": ["version", "baseVideoSha256", "fpsNum", "fpsDen", "durationFrames", "preserveBaseAudio", "preserveShotOrder", "operations"],
+  "$defs": {
+    "common": {
+      "type": "object",
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "sentenceId": {"type": "string", "minLength": 1},
+        "startFrame": {"type": "integer", "minimum": 0},
+        "endFrame": {"type": "integer", "minimum": 1},
+        "layer": {"type": "integer", "minimum": 0},
+        "visualIntent": {"type": "string", "minLength": 1}
+      },
+      "required": ["id", "sentenceId", "startFrame", "endFrame", "layer", "visualIntent"]
+    },
+    "box": {
+      "type": "object", "additionalProperties": false,
+      "properties": {"x": {"type": "number", "minimum": 0, "maximum": 1}, "y": {"type": "number", "minimum": 0, "maximum": 1}, "w": {"type": "number", "exclusiveMinimum": 0, "maximum": 1}, "h": {"type": "number", "exclusiveMinimum": 0, "maximum": 1}},
+      "required": ["x", "y", "w", "h"]
+    },
+    "assetPlacement": {
+      "allOf": [{"$ref": "#/$defs/common"}, {"type": "object", "additionalProperties": false, "properties": {
+        "id": {"type": "string", "minLength": 1}, "sentenceId": {"type": "string", "minLength": 1}, "startFrame": {"type": "integer", "minimum": 0}, "endFrame": {"type": "integer", "minimum": 1}, "layer": {"type": "integer", "minimum": 0}, "visualIntent": {"type": "string", "minLength": 1},
+        "operation": {"enum": ["image_overlay", "picture_in_picture", "cutaway", "split_screen"]},
+        "assetId": {"type": "string", "pattern": "^a[0-9]{6}$"},
+        "sourceInSeconds": {"type": ["number", "null"], "minimum": 0}, "sourceOutSeconds": {"type": ["number", "null"], "exclusiveMinimum": 0},
+        "box": {"$ref": "#/$defs/box"}, "fit": {"enum": ["cover", "contain"]}, "opacity": {"type": "number", "minimum": 0, "maximum": 1}, "muteAssetAudio": {"const": true}
+      }, "required": ["id", "sentenceId", "startFrame", "endFrame", "layer", "visualIntent", "operation", "assetId", "sourceInSeconds", "sourceOutSeconds", "box", "fit", "opacity", "muteAssetAudio"]}]},
+    "effect": {
+      "allOf": [{"$ref": "#/$defs/common"}, {"type": "object", "additionalProperties": false, "properties": {
+        "id": {"type": "string", "minLength": 1}, "sentenceId": {"type": "string", "minLength": 1}, "startFrame": {"type": "integer", "minimum": 0}, "endFrame": {"type": "integer", "minimum": 1}, "layer": {"type": "integer", "minimum": 0}, "visualIntent": {"type": "string", "minLength": 1},
+        "operation": {"const": "visual_effect"}, "effectId": {"enum": ["slow_zoom_in", "slow_zoom_out", "desaturate", "vignette", "soft_blur"]}, "strength": {"type": "number", "minimum": 0, "maximum": 1}, "target": {"enum": ["base_video", "asset_layer"]}
+      }, "required": ["id", "sentenceId", "startFrame", "endFrame", "layer", "visualIntent", "operation", "effectId", "strength", "target"]}]},
+    "card": {
+      "allOf": [{"$ref": "#/$defs/common"}, {"type": "object", "additionalProperties": false, "properties": {
+        "id": {"type": "string", "minLength": 1}, "sentenceId": {"type": "string", "minLength": 1}, "startFrame": {"type": "integer", "minimum": 0}, "endFrame": {"type": "integer", "minimum": 1}, "layer": {"type": "integer", "minimum": 0}, "visualIntent": {"type": "string", "minLength": 1},
+        "operation": {"const": "card"}, "title": {"type": "string", "maxLength": 90}, "body": {"type": "string", "maxLength": 240}, "box": {"$ref": "#/$defs/box"}, "styleId": {"type": "string", "minLength": 1}, "animationId": {"type": "string", "minLength": 1}
+      }, "required": ["id", "sentenceId", "startFrame", "endFrame", "layer", "visualIntent", "operation", "title", "body", "box", "styleId", "animationId"]}]},
+    "graphic": {
+      "allOf": [{"$ref": "#/$defs/common"}, {"type": "object", "additionalProperties": false, "properties": {
+        "id": {"type": "string", "minLength": 1}, "sentenceId": {"type": "string", "minLength": 1}, "startFrame": {"type": "integer", "minimum": 0}, "endFrame": {"type": "integer", "minimum": 1}, "layer": {"type": "integer", "minimum": 0}, "visualIntent": {"type": "string", "minLength": 1},
+        "operation": {"const": "graphic"}, "eventId": {"type": "string", "minLength": 1}
+      }, "required": ["id", "sentenceId", "startFrame", "endFrame", "layer", "visualIntent", "operation", "eventId"]}]}
+  }
+}

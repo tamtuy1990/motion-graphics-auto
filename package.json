@@ -1,0 +1,33 @@
+{
+  "name": "dsh-motion-graphics-auto",
+  "version": "0.1.0",
+  "description": "DeepSeek Harness bundle for speech-timed motion graphics workflows",
+  "keywords": [
+    "deepseek-harness",
+    "dsh-plugin",
+    "motion-graphics",
+    "remotion",
+    "hyperframes"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tamtuy1990/motion-graphics-auto.git"
+  },
+  "homepage": "https://github.com/tamtuy1990/motion-graphics-auto#readme",
+  "type": "module",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "version-check.js",
+    "cordis.patch.yml",
+    "skills/motion-graphics-auto/**"
+  ],
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

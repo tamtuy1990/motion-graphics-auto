@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://motion-graphics-auto.local/schemas/timing.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "const": "1.0"
+    },
+    "language": {
+      "type": "string",
+      "minLength": 1
+    },
+    "method": {
+      "enum": [
+        "forced-alignment",
+        "stt-alignment",
+        "coarse"
+      ]
+    },
+    "audioOffsetSeconds": {
+      "type": "number"
+    },
+    "words": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "start": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "end": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "confidence": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1
+          },
+          "status": {
+            "enum": [
+              "aligned",
+              "unaligned"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "text",
+          "start",
+          "end",
+          "confidence",
+          "status"
+        ]
+      }
+    },
+    "segments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "originalText": {
+            "type": "string",
+            "minLength": 1
+          },
+          "wordIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "status": {
+            "enum": [
+              "aligned",
+              "partial",
+              "unaligned"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "originalText",
+          "wordIds",
+          "status"
+        ]
+      }
+    }
+  },
+  "required": [
+    "version",
+    "language",
+    "method",
+    "audioOffsetSeconds",
+    "words",
+    "segments"
+  ]
+}

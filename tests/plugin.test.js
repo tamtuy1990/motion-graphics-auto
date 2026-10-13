@@ -23,6 +23,7 @@ test('plugin registers an invocable skill, its packaged resources, and a fixed-s
 
   assert.equal(skills.length, 1)
   assert.equal(skills[0].name, 'motion-graphics-auto')
+  assert.equal(skills[0].source, 'runtime')
   assert.equal(skills[0].invocation.modelInvocable, true)
   assert.equal(skills[0].invocation.userInvocable, true)
   assert.match(skills[0].content, /one planning request by default/iu)

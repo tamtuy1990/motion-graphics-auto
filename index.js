@@ -44,6 +44,7 @@ export function apply(ctx) {
     const disposeSkill = ctx.skills.register({
       name: skillName,
       description: skillDescription,
+      source: 'runtime',
       ...(skillWhenToUse ? { whenToUse: skillWhenToUse } : {}),
       content: skillContent,
       resourceBase: { kind: 'directory', path: skillDir },

@@ -9,7 +9,9 @@ user-invocable: true
 
 Deliver an enriched copy of an existing edit, an editable storyboard and a QA report. The job may include the finished base video plus a project bin of source footage, still images, logos and design assets. Read [project asset handling](references/project-assets.md) to inventory and select those assets. Source files stay immutable. Default visual edits preserve the base shot order and timing while adding graphics, image/video cutaways, picture-in-picture and restrained visual treatments; do not change the underlying edit or replace shots unless the user asks. Copy original audio streams without filters or replacement; added footage is silent by default. External narration is timing evidence, not an automatic replacement soundtrack.
 
-> **Read [editorial craft](references/editorial-craft.md) before choosing any visual.** It covers the five failure modes that pass every validator and still ship a bad video: formula repetition, no B-roll, image choice by filename order instead of meaning, uniform cutting rhythm, and scattered accent colour — plus the rules that prevent a shaking picture. The rest of this skill is technical contract; that file is the craft.
+> **Read [inventing visuals](references/inventing-visuals.md) and [editorial craft](references/editorial-craft.md) before choosing any visual.** The first teaches the thinking: a five-step method to derive a picture from what a sentence is actually doing, seven idea-generating moves for when you are stuck, and three levels of creativity (look up a mechanism / adapt one / invent one) with a target of 1–2 fully invented scenes per five minutes. The second covers the failure modes that pass every validator and still ship a bad video: formula repetition, no B-roll, image choice by filename order instead of meaning, uniform cutting rhythm, scattered accent colour — plus the shake rules.
+>
+> A mechanism lookup table is level A. Using it for the whole video is still dull, however many mechanisms it lists. The rest of this skill is technical contract; those two files are the craft.
 
 ## Execute
 

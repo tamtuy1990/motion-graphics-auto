@@ -6,6 +6,15 @@ thuật* (schema, timing, render). File này dạy **tư duy dựng hình** — 
 
 Đọc file này **trước khi** chọn dạng hình cho bất kỳ beat nào.
 
+> **Quan trọng — đọc kèm [inventing visuals](inventing-visuals.md).** Chín cơ chế
+> ở §7 là **kết quả của việc suy nghĩ**, không phải cách suy nghĩ. Nếu chỉ tra
+> bảng "câu này dạng gì" thì mãi chỉ xoay quanh chín thứ đó, và video vẫn đọc ra
+> nhàm dù đã "đa dạng cơ chế". File `inventing-visuals.md` dạy quy trình năm bước
+> để **nghĩ ra** hình cho từng đoạn, và ba mức sáng tạo (tra bảng / ghép có biến
+> đổi / nghĩ mới). Mục tiêu: 70% mức A · 25% mức B · **5% mức C** — tức trong
+> 5 phút phải có **1–2 đoạn được nghĩ riêng hoàn toàn**. Đó là những đoạn người
+> xem nhớ.
+
 > Nguồn: rút từ một job thật bị phản hồi nặng ("lặp công thức", "không biết làm
 > A-roll/B-roll", "bị rung"), sau đó đối chiếu với một bộ 40 ảnh tham chiếu do
 > người dùng cung cấp và bản master prompt 1 028 dòng kèm theo. Mọi luật dưới
@@ -194,6 +203,10 @@ cách kể.
 
 **Luật:** mỗi đoạn phải trả lời — *"hình này làm được việc gì mà lời thoại không
 làm được?"* Nếu chỉ để "hiện chữ ra" thì **bỏ hình, để footage tự nói.**
+
+**Nhưng bảng dưới đây là mức A.** Dùng nó cho đoạn thông tin bình thường, rồi
+đọc [inventing visuals](inventing-visuals.md) để nâng một hai đoạn quan trọng
+lên mức B/C. Tra bảng cho cả video = vẫn nhàm.
 
 ### Bảng tra: câu thoại → cơ chế
 

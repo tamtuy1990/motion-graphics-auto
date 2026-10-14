@@ -196,6 +196,42 @@ def analyse(board: dict, fps: float = 30.0) -> dict:
             "chọn hình theo thói quen thay vì theo nghĩa câu thoại"
         )
 
+    # --- 9. mức sáng tạo ---------------------------------------------------
+    # `editorial-craft.md` cho một BẢNG TRA cơ chế (mức A). Dùng bảng cho cả
+    # video thì vẫn nhàm, dù đã "đa dạng". `inventing-visuals.md` nói mục tiêu:
+    # 70% A / 25% B / 5% C — tức 1-2 đoạn được nghĩ riêng.
+    # Không đo được "chất" của một ý tưởng bằng code. Nhưng ĐO ĐƯỢC dấu hiệu:
+    # event nào không tra được từ bảng (dạng mới), và event nào kế thừa state
+    # từ event trước (đối tượng đổi trạng thái thay vì dựng lại).
+    KNOWN = set(MOTION_FAMILIES.keys())
+    invented = [e for e in ordered if e.get("template") not in KNOWN]
+
+    # State kế thừa: cùng một đối tượng/chủ đề xuất hiện ở >=2 event, và event
+    # sau mang `continues` trỏ về event trước.
+    inherits = [e for e in ordered if e.get("continues")]
+    reuses = {}
+    for e in ordered:
+        key = (e.get("props") or {}).get("subject") or (e.get("props") or {}).get("title")
+        if key:
+            reuses[key] = reuses.get(key, 0) + 1
+    repeated_subjects = {k: v for k, v in reuses.items() if v >= 2}
+
+    n_events = len(ordered)
+    if n_events >= 8:
+        if not invented and not inherits:
+            reasons.append(
+                "không có event nào ở mức B/C — mọi hình đều tra được từ bảng cơ "
+                "chế; mục tiêu là 1-2 đoạn được nghĩ riêng (xem inventing-visuals.md)"
+            )
+        # Đối tượng lặp mà không kế thừa state = dựng lại từ đầu mỗi lần.
+        if repeated_subjects and not inherits:
+            worst = max(repeated_subjects.items(), key=lambda kv: kv[1])
+            reasons.append(
+                "chủ đề '%s' xuất hiện %d lần nhưng không event nào kế thừa trạng "
+                "thái trước — đối tượng nên ĐỔI TRẠNG THÁI, không dựng lại"
+                % (worst[0], worst[1])
+            )
+
     # --- điểm ---------------------------------------------------------------
     score = 0.0
     if top_share > 0.30:
@@ -218,6 +254,11 @@ def analyse(board: dict, fps: float = 30.0) -> dict:
         score += min(0.08, 0.04 * multi_accent)
     if has_why == 0:
         score += 0.06
+    if n_events >= 8:
+        if not invented and not inherits:
+            score += 0.10
+        if repeated_subjects and not inherits:
+            score += 0.06
     score = max(0.0, min(1.0, score))
     level = ("good" if score < 0.20 else
              "medium" if score < 0.45 else
@@ -238,6 +279,9 @@ def analyse(board: dict, fps: float = 30.0) -> dict:
             "footage_clean_events": footage_n,
             "events_with_why": has_why,
             "multi_accent_events": multi_accent,
+            "invented_events": len(invented),
+            "events_inheriting_state": len(inherits),
+            "repeated_subjects": repeated_subjects,
         },
     }
 

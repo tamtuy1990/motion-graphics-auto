@@ -22,7 +22,7 @@ File này dạy **cách nghĩ ra hình mới**, và cách kiểm tra một ý t�
 Sáng tạo trong motion graphics là **nhìn thấy quan hệ bên trong nội dung rồi
 tìm hình thể hiện đúng quan hệ đó**. Không phải bịa ra hình mới lạ.
 
-Ba nguồn ý tưởng, theo thứ tự hiệu quả:
+Ba nguồn ý tưởng **hay dùng nhất**:
 
 1. **Ẩn dụ trong chính câu thoại** — người viết kịch bản đã nghĩ ra rồi, chỉ
    chưa vẽ. (Mạnh nhất, và bị bỏ qua nhiều nhất.)
@@ -30,8 +30,22 @@ Ba nguồn ý tưởng, theo thứ tự hiệu quả:
    hình dạng; hình dạng đó chính là hình cần vẽ.
 3. **Phép so sánh** — với cái gì khác? to hơn, nhỏ hơn, nhanh hơn, sớm hơn?
 
-Không có nguồn thứ tư. "Chọn một layout trông hay" không phải nguồn ý tưởng —
-đó là trang trí.
+**Đây không phải danh sách đóng.** Còn ít nhất bốn nguồn nữa, và chúng thường
+cho ra hình hay hơn ba cái trên:
+
+4. **Chỗ đứng của người kể** — ai đang kể, họ biết gì mà nhân vật không biết?
+   Câu "hồi đó thật sự là vậy" không có dữ liệu nào, nhưng có **khoảng cách giữa
+   người kể bây giờ và người trong chuyện ngày xưa**. Khoảng cách đó vẽ được.
+5. **Cái KHÔNG được nói** — điều gì bị bỏ trống, bị né, bị nói lướt? Chỗ trống
+   trong lời thoại thường là chỗ đáng vẽ nhất. (Nợ 50 triệu không được nhắc tới
+   trong lúc mọi người tin là 0 — chính cái không-nói đó là hình.)
+6. **Nhịp của chính đoạn đó** — câu dài rồi câu cụt, hoặc ba câu ngắn liên tiếp.
+   Nhịp đó là một cấu trúc, và nó vẽ được bằng thời lượng và khoảng lặng.
+7. **Vật thể đời thường trong cảnh** — cái gì đang nằm trên bàn, trong tay, trên
+   màn hình? Đôi khi hình đã ở đó rồi, chỉ cần **cận cảnh** nó.
+
+"Chọn một layout trông hay" vẫn không phải nguồn ý tưởng — đó là trang trí. Nhưng
+đừng tự giới hạn vào ba nguồn đầu chỉ vì chúng dễ nghĩ ra nhất.
 
 ---
 
@@ -50,20 +64,78 @@ Bỏ qua tính từ. Động từ và danh từ cụ thể là chỗ hình sốn
 
 ### Bước 2 — Hỏi: **quan hệ** giữa chúng là gì?
 
-Không phải "cái này là gì" mà **"cái này với cái kia thế nào"**. Sáu quan hệ
-bao phủ gần hết:
+Không phải "cái này là gì" mà **"cái này với cái kia thế nào"**.
 
-| Quan hệ | Câu hỏi kiểm tra |
-|---|---|
-| **Biến đổi** | cái gì đổi thành cái gì, qua mấy bước? |
-| **So sánh** | A so với B: hơn kém, và **hơn kém bao nhiêu**? |
-| **Nhân quả** | cái gì sinh ra cái gì? |
-| **Tương phản** | hai thứ đối nhau thế nào? cái nào thật? |
-| **Tích tụ** | có gì chồng lên theo thời gian? |
-| **Che giấu** | cái gì nhìn thấy được, cái gì bị che? |
+#### Cảnh báo: đừng biến bước này thành bảng tra
 
-> Quan hệ của câu trên: **che giấu** (con số 0 che sự thật) + **tương phản**
-> (sổ ghi vs thực tế).
+Bản đầu của file này đưa ra **sáu quan hệ** rồi viết "bao phủ gần hết". **Sai.**
+Làm vậy là lặp lại đúng lỗi mà file này sinh ra để sửa: biến việc suy nghĩ thành
+việc chọn từ danh sách. Một danh sách sáu dòng sẽ luôn có câu thứ bảy nằm ngoài.
+
+Sáu quan hệ dưới đây là **ví dụ**, không phải danh sách đóng. Chúng là sáu cách
+**hay gặp**, không phải sáu ô phải nhét câu vào.
+
+#### Bảng gợi ý (KHÔNG phải danh sách đóng)
+
+| Quan hệ | Câu hỏi kiểm tra | Ví dụ trong kịch bản đời thường |
+|---|---|---|
+| **Biến đổi** | cái gì đổi thành cái gì, qua mấy bước? | lớn lên, hư hỏng, chín muồi |
+| **So sánh** | A so với B: hơn kém bao nhiêu? | hai người, hai thời điểm |
+| **Nhân quả** | cái gì sinh ra cái gì? | vay → nợ → lãi |
+| **Tương phản** | hai thứ đối nhau thế nào? cái nào thật? | lời nói vs hành động |
+| **Tích tụ** | có gì chồng lên theo thời gian? | thói quen, lãi mẹ đẻ lãi con |
+| **Che giấu** | cái gì nhìn thấy, cái gì bị che? | nợ 0 đồng che khoản vay |
+
+#### Mười hai quan hệ KHÁC — để thấy bảng trên thiếu gì
+
+| Quan hệ | Câu hỏi | Hình gợi ý |
+|---|---|---|
+| **Đồng thời** | hai việc xảy ra cùng lúc, không liên quan? | hai dòng chạy song song, **không bao giờ gặp** |
+| **Chờ đợi** | thời gian trôi mà không có gì xảy ra? | một chỗ đứng yên, thứ khác trôi qua |
+| **Vượt ngưỡng** | khi nào thì "đủ để thành chuyện"? | đầy dần, **tràn** ở một mốc |
+| **Đảo ngược** | cái gì đổi vai cho nhau? | A và B **đổi chỗ** |
+| **Mất mát không nhìn thấy** | mất cái gì mà không thấy mất? | vật vẫn còn nhưng **rỗng ruột** |
+| **Lặp lại khác đi** | cùng việc nhưng lần này khác? | cùng hình, **một chi tiết đổi** |
+| **Không thể đảo** | làm rồi thì không lùi được? | cánh cửa **đóng lại**, không mở |
+| **Hai thứ không gặp nhau** | hai thứ lệch pha? | hai nhịp **lệch**, không trùng |
+| **Thay thế** | cái này được thay bằng cái kia? | vật cũ **đẩy ra**, vật mới vào |
+| **Đo lường sai** | đo bằng thước không phù hợp? | hai thứ **khác đơn vị** đặt cạnh |
+| **Nợ chưa gọi** | có gì đã tồn tại nhưng chưa ai nhắc? | bóng **nằm sẵn**, chưa ai thấy |
+| **Trật tự đảo** | kết quả đến trước nguyên nhân? | hiệu ứng **hiện trước** nguyên nhân |
+
+Không phải để bạn chọn từ mười tám dòng — mà để thấy **sáu dòng là quá ít**.
+
+#### Cách tìm quan hệ khi bảng không có
+
+Hỏi **năm câu**, theo thứ tự. Câu nào cho câu trả lời cụ thể thì dừng.
+
+1. **"Cái gì đang thay đổi ở đây?"** → nếu có, đó là quan hệ biến đổi hoặc
+   tích tụ.
+2. **"Hai thứ này khác nhau ở đâu?"** → so sánh, tương phản, hoặc không gặp nhau.
+3. **"Cái này xảy ra TRƯỚC hay SAU cái kia?"** → nhân quả, trật tự đảo, chờ đợi.
+4. **"Có gì ở đây mà người ta KHÔNG thấy?"** → che giấu, nợ chưa gọi, mất mát
+   không nhìn thấy.
+5. **"Nếu kể chuyện này mà không có chữ, người xem thấy gì trước tiên?"** →
+   câu này phá được bế tắc khi bốn câu trên không ra gì.
+
+**Nếu cả năm câu đều không có câu trả lời cụ thể → câu thoại này không có quan
+hệ, và đúng luật là KHÔNG VẼ GÌ.** Đó là kết luận hợp lệ, không phải thất bại.
+
+#### Quan hệ có thể là thứ bạn tự đặt tên
+
+Trong ví dụ ở mục 8, câu "cha cho tiền trước khi con kịp đồng ý" không thuộc quan
+hệ nào ở trên. Quan hệ của nó là **"quyết trước khi hỏi"** — do người dựng tự
+đặt tên, sau khi nhìn ra sự việc.
+
+> **Được phép tự đặt tên quan hệ.** Nếu phải mô tả bằng một cụm từ mới, đó là
+> dấu hiệu bạn đang nghĩ thật chứ không đang tra bảng.
+
+Đặt tên xong thì vẫn phải qua Bước 3 (trông thế nào) và Bước 4 (ba câu kiểm).
+Có tên không miễn được kiểm.
+
+> Quan hệ của câu ví dụ: **che giấu** + **tương phản** — nhưng nếu dừng ở đây mà
+> không hỏi tiếp "che bằng cách nào", hình sẽ chỉ là "số 0 mờ đi", tức là mức A.
+> Phải hỏi tiếp mới ra "khối nợ mọc lên chôn nó" — xem Bước 3.
 
 ### Bước 3 — Hỏi: quan hệ đó **trông như thế nào** nếu nhìn thấy được?
 
@@ -102,7 +174,6 @@ Nếu không viết được một câu như vậy → **chưa nghĩ xong**, đ�
 ---
 
 ## 3. Bảy động tác sinh ý tưởng, khi bí
-
 Khi quan hệ đã rõ mà chưa biết vẽ thế nào, thử bảy động tác này theo thứ tự.
 
 ### (1) **Để đối tượng TỰ NÓI thay vì thêm chữ**

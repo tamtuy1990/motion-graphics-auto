@@ -96,10 +96,23 @@ Trong 40 ảnh tham chiếu, cảnh **đẹp nhất** là cảnh **không có in
 footage toàn màn hình + chỉ một card định danh nhỏ ở góc (sọc accent dọc, tên
 địa điểm/chủ thể, một dòng chú thích, credit nhỏ).
 
+> ⚠ **ĐỌC KỸ: "không graphic" KHÔNG có nghĩa là "ảnh gốc để nguyên".**
+>
+> Đây là chỗ hiểu sai tai hại nhất, và đã hiểu sai thật một lần. Cảnh footage sạch
+> là cảnh **không có đồ họa thông tin** — nhưng ảnh vẫn phải đi qua **biến đổi**:
+> crop lại khung, chuyển động camera chậm, grade màu, card định danh. Bốn thứ đó
+> đã là ba–bốn lớp biến đổi.
+>
+> Để ảnh gốc nguyên bản **không phải là phong cách** — đó là rủi ro bản quyền và
+> bị YouTube đánh reused content. Xem [faceless transform](faceless-transform.md).
+
 Luật:
 - **Không** đặt thanh, số, biểu đồ lên cảnh này.
 - Card là **bối cảnh**, không phải nhân vật chính — entrance ngắn, tinh tế.
-- Lớp phủ tối = **0** (hoặc rất nhẹ). Mục đích là để footage tự nói.
+- Lớp phủ tối **rất nhẹ** — mục đích là để footage tự nói, không phải làm tối nó.
+  (Nhưng vẫn phải có grade; "nhẹ" khác "không có".)
+- **Bắt buộc ≥ 2 lớp biến đổi** như mọi cảnh khác. Thường là 3–4: crop lại + camera
+  chậm + grade + card.
 - Ảnh minh hoạ phải ghi `참고 사진` / "ảnh minh hoạ", **không** ghi `실제 사진`
   nếu chưa xác minh.
 

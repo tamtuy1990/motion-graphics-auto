@@ -9,9 +9,13 @@ user-invocable: true
 
 Deliver an enriched copy of an existing edit, an editable storyboard and a QA report. The job may include the finished base video plus a project bin of source footage, still images, logos and design assets. Read [project asset handling](references/project-assets.md) to inventory and select those assets. Source files stay immutable. Default visual edits preserve the base shot order and timing while adding graphics, image/video cutaways, picture-in-picture and restrained visual treatments; do not change the underlying edit or replace shots unless the user asks. Copy original audio streams without filters or replacement; added footage is silent by default. External narration is timing evidence, not an automatic replacement soundtrack.
 
-> **Read [inventing visuals](references/inventing-visuals.md) and [editorial craft](references/editorial-craft.md) before choosing any visual.** The first teaches the thinking: a five-step method to derive a picture from what a sentence is actually doing, seven idea-generating moves for when you are stuck, and three levels of creativity (look up a mechanism / adapt one / invent one) with a target of 1–2 fully invented scenes per five minutes. The second covers the failure modes that pass every validator and still ship a bad video: formula repetition, no B-roll, image choice by filename order instead of meaning, uniform cutting rhythm, scattered accent colour — plus the shake rules.
+> **Read [faceless transform](references/faceless-transform.md), [inventing visuals](references/inventing-visuals.md) and [editorial craft](references/editorial-craft.md) before choosing any visual.**
 >
-> A mechanism lookup table is level A. Using it for the whole video is still dull, however many mechanisms it lists. The rest of this skill is technical contract; those two files are the craft.
+> The first is a hard requirement, not a style preference: **every image passes through at least two transform layers** — reframe, motion, grade, overlay, recompose, or reuse-with-new-context. This is a copyright and reused-content requirement as much as a quality one. A valid licence does not by itself make a video monetisable. "Footage left to speak for itself" means *no graphic*; it does **not** mean *untouched original* — such a scene still needs a recrop, a slow camera move, a grade and a small identification card. AI-generated images carry the same risk as public-source images, because one popular prompt repeats across channels.
+>
+> The second teaches the thinking: a five-step method to derive a picture from what a sentence is actually doing; five questions to find the relation when no ready-made relation fits, with naming your own actively encouraged; and three levels of creativity with a target of one or two fully invented scenes per five minutes. Prefer this over the mechanism table, which is only level A.
+>
+> The third covers the failure modes that pass every validator and still ship a bad video: formula repetition, no B-roll, image choice by filename order instead of meaning, uniform cutting rhythm, scattered accent colour — plus the shake rules.
 
 ## Execute
 

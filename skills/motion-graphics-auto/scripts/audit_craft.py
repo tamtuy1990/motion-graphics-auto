@@ -232,6 +232,42 @@ def analyse(board: dict, fps: float = 30.0) -> dict:
                 % (worst[0], worst[1])
             )
 
+    # --- 10. lớp biến đổi (bản quyền / reused content) ---------------------
+    # Với faceless, mỗi hình phải qua >= 2 lớp biến đổi — không phải chuyện thẩm
+    # mỹ mà là điều kiện để video không bị đánh reused content. Xem
+    # faceless-transform.md. `transforms` là mảng tên lớp:
+    # reframe | motion | grade | overlay | recompose | reuse
+    VALID_TF = {"reframe", "motion", "grade", "overlay", "recompose", "reuse"}
+    thin = []
+    combos = Counter()
+    for e in ordered:
+        tf = [t for t in (e.get("transforms") or []) if t in VALID_TF]
+        if len(tf) < 2:
+            thin.append(e.get("id", "?"))
+        if tf:
+            combos[tuple(sorted(tf))] += 1
+    if thin:
+        reasons.append(
+            "%d/%d hình có < 2 lớp biến đổi (%s) — mỗi hình phải qua ít nhất 2 lớp "
+            "để tránh bị đánh reused content; 'để footage tự nói' KHÔNG có nghĩa là "
+            "ảnh gốc nguyên bản"
+            % (len(thin), n, ", ".join(thin[:5]))
+        )
+    combo_share = 0.0
+    if combos:
+        _, cn = combos.most_common(1)[0]
+        combo_share = cn / n
+        if combo_share > 0.40 and n >= 5:
+            reasons.append(
+                "tổ hợp lớp biến đổi lặp %.0f%% — mọi hình đi qua cùng một công thức "
+                "xử lý, dễ bị nhận ra là sản xuất hàng loạt" % (combo_share * 100)
+            )
+    if not combos:
+        reasons.append(
+            "không event nào khai `transforms` — chưa xét yêu cầu biến đổi tài sản; "
+            "xem faceless-transform.md"
+        )
+
     # --- điểm ---------------------------------------------------------------
     score = 0.0
     if top_share > 0.30:
@@ -259,6 +295,13 @@ def analyse(board: dict, fps: float = 30.0) -> dict:
             score += 0.10
         if repeated_subjects and not inherits:
             score += 0.06
+    # Biến đổi tài sản: hình mỏng hoặc dùng một công thức xử lý.
+    if thin:
+        score += min(0.14, 0.14 * len(thin) / max(1, n))
+    if combo_share > 0.40 and n >= 5:
+        score += min(0.08, 0.08 * (combo_share - 0.40) / 0.35)
+    if not combos:
+        score += 0.08
     score = max(0.0, min(1.0, score))
     level = ("good" if score < 0.20 else
              "medium" if score < 0.45 else
@@ -282,6 +325,9 @@ def analyse(board: dict, fps: float = 30.0) -> dict:
             "invented_events": len(invented),
             "events_inheriting_state": len(inherits),
             "repeated_subjects": repeated_subjects,
+            "thin_transform_events": len(thin),
+            "top_transform_combo_share": round(combo_share, 2),
+            "events_declaring_transforms": sum(1 for e in ordered if e.get("transforms")),
         },
     }
 

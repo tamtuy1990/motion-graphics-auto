@@ -1,6 +1,6 @@
 {
   "name": "dsh-motion-graphics-auto",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "DeepSeek Harness bundle for speech-timed motion graphics workflows",
   "keywords": [
     "deepseek-harness",
